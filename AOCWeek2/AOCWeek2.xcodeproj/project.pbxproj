@@ -381,7 +381,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AOCWeek2/AOCWeek2-Prefix.pch";
 				INFOPLIST_FILE = "AOCWeek2/AOCWeek2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -392,7 +394,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AOCWeek2/AOCWeek2-Prefix.pch";
 				INFOPLIST_FILE = "AOCWeek2/AOCWeek2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -450,6 +454,7 @@
 				0BEC2E8016682538004675CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0BEC2E8116682538004675CC /* Build configuration list for PBXNativeTarget "AOCWeek2Tests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +463,7 @@
 				0BEC2E8316682538004675CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
