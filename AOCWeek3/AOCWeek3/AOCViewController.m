@@ -18,13 +18,19 @@
 {
     //Call the Add function passing in two integer values. Capture the return of this function into a variable.
     
-    [self addFunction]
+    int addedTotal = [self addFunction:82 toSecondNumber:47];
     
     [self displayAlertWithString:[NSString stringWithFormat:@"The total of both numbers is: %@",[[[NSNumber alloc] initWithInt:addedTotal]stringValue]]];
     
     //Call the Append function with two NSStrings. Capture the result and display a UIAlertView with the appended string using displayAlertWithString.
     
-    [self displayAlertWithString:[self firstString:"@This " secondString:"@Worked."]]
+    NSString * name = [self appendFunction:@"Justin " secondString: @"Rowe"];
+    [self displayAlertWithString:[NSString stringWithFormat:@"Hello, my name is: %@",[[NSString alloc] initWithString:name]]];
+    
+    //Call the Compare function with two integer values. If Compare returns YES, display an UIAlertView both with the input values and the result using the DisplayAlertWithString function
+    
+    NSString * answer = [self compareFunction:compareFirstNumber:88 toSecondNumber:88]
+    [self displayAlertWithString:[[NSString alloc] initWithString:answer]];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -38,9 +44,9 @@
 
 //Create a function called Add. This function will take two NSInteger or int types and return the result of an addition between these two.
 
-- (int)addFunction:addFirstNumber:(NSInteger)y toSecondNumber:(NSInteger)z
+- (int)addFunction:(int)firstNumber toSecondNumber:(int)toSecondNumber
 {
-    return y + z;
+    return firstNumber + toSecondNumber;
 }
 
 //Create a BOOL function called Compare that takes two NSInteger values. Return YES or NO based on whether the values are equal.
