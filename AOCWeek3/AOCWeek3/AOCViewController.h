@@ -19,7 +19,7 @@
 
 //Create a BOOL function called Compare that takes two NSInteger values. Return YES or NO based on whether the values are equal.
 
-- (BOOL)compareFunction:compareFirstNumber:(int)y toSecondNumber:(int)z;
+- (BOOL)compareFunction:(int)numberOne toNumberTwo:(int)toNumberTwo;
 
 //Create a function called Append. This function will take two NSStrings and return a new NSString containing the appended strings using an NSMutableString and the Append method.
 

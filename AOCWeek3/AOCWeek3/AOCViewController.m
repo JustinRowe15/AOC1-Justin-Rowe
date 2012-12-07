@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    
     //Call the Add function passing in two integer values. Capture the return of this function into a variable.
     
     int addedTotal = [self addFunction:82 toSecondNumber:47];
@@ -25,15 +28,17 @@
     //Call the Append function with two NSStrings. Capture the result and display a UIAlertView with the appended string using displayAlertWithString.
     
     NSString * name = [self appendFunction:@"Justin " secondString: @"Rowe"];
+    
     [self displayAlertWithString:[NSString stringWithFormat:@"Hello, my name is: %@",[[NSString alloc] initWithString:name]]];
     
     //Call the Compare function with two integer values. If Compare returns YES, display an UIAlertView both with the input values and the result using the DisplayAlertWithString function
     
-    NSString * answer = [self compareFunction:compareFirstNumber:88 toSecondNumber:88]
-    [self displayAlertWithString:[[NSString alloc] initWithString:answer]];
-    
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    if([self compareFunction:88 toNumberTwo:88])
+    {
+        [self displayAlertWithString:[NSString stringWithFormat:@"Yes, they're the same."]];
+    } else {
+        [self displayAlertWithString:[NSString stringWithFormat:@"No, they're not the same."]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,9 +56,9 @@
 
 //Create a BOOL function called Compare that takes two NSInteger values. Return YES or NO based on whether the values are equal.
 
-- (BOOL)compareFunction:compareFirstNumber:(NSInteger)y toSecondNumber:(NSInteger)z
+- (BOOL)compareFunction:(int)numberOne toNumberTwo:(int)toNumberTwo
 {
-    if (y == z) {
+    if (numberOne == toNumberTwo) {
         return YES;
     } else {
         return NO;
@@ -73,7 +78,7 @@
 
 - (void)displayAlertWithString:(NSString *)string
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Project Three Starting..." message:string delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Project Three Results" message:string delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
     [alert show];
 }
 
