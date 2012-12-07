@@ -21,7 +21,7 @@
     
     //Call the Add function passing in two integer values. Capture the return of this function into a variable.
     
-    int addedTotal = [self addFunction:82 toSecondNumber:47];
+    int addedTotal = [self addFunction:64 toSecondNumber:1212];
     
     [self displayAlertWithString:[NSString stringWithFormat:@"The total of both numbers is: %@",[[[NSNumber alloc] initWithInt:addedTotal]stringValue]]];
     
@@ -33,7 +33,7 @@
     
     //Call the Compare function with two integer values. If Compare returns YES, display an UIAlertView both with the input values and the result using the DisplayAlertWithString function
     
-    if([self compareFunction:88 toNumberTwo:88])
+    if([self compareFunction:90 toNumberTwo:90])
     {
         [self displayAlertWithString:[NSString stringWithFormat:@"Yes, they're the same."]];
     } else {
