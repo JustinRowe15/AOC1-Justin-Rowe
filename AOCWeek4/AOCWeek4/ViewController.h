@@ -11,6 +11,10 @@
 @interface ViewController : UIViewController
 {
     UITextField * loginField;
+    UILabel * pleaseEnterLabel;
+    UILabel * infoLabel;
 }
+
+-(void)onClick:(id)button;
 
 @end
