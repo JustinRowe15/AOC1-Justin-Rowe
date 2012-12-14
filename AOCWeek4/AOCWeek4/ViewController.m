@@ -20,6 +20,9 @@
 
 - (void)viewDidLoad
 {
+    //Container
+    containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:containerView];
     
     //User Name Label
     userName = [[UILabel alloc] initWithFrame:CGRectMake(0, 10.0f, 100.0f, 40.0f)];
@@ -33,6 +36,7 @@
     //Login Field
     loginField = [[UITextField alloc] initWithFrame:CGRectMake(85.0f, 15.0f, 220.0f, 30.0f)];
     [loginField setBorderStyle:UITextBorderStyleRoundedRect];
+    [loginField setDelegate:self];
     [self.view addSubview:loginField];
     
     //Login Button
@@ -40,7 +44,7 @@
     [loginButton setTag:loginClick];
     [loginButton setFrame:CGRectMake(215.0f, 50.0f, 90.0f, 30.0f)];
     [loginButton setTitle:@"Enter" forState:UIControlStateNormal];
-    [loginButton addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
+    [loginButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginButton];
     
     //Please Enter Username Label
@@ -56,14 +60,14 @@
     [dateButton setTag:dateClick];
     [dateButton setFrame:CGRectMake(20.0f, 240.0f, 100.0f, 50.0f)];
     [dateButton setTitle:@"Show Date" forState:UIControlStateNormal];
-    [loginButton addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
+    [dateButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:dateButton];
     
     //Info Button
     infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
     [infoButton setTag:infoClick];
     [infoButton setFrame: CGRectMake(20.0f, 360.0f, 20.0f, 20.0f)];
-    [loginButton addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
+    [infoButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:infoButton];
     
     //Info Label
@@ -78,18 +82,19 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)onClick:(UIButton*)button
-{
+-(void)onClick:(id)button {
     switch ([button tag]) {
         case loginClick:
             if ([loginField.text length] > 0)
             {
                 [pleaseEnterLabel setText:[NSString stringWithFormat:@"User: %@ has logged in.", [loginField text]]];
+                [loginField resignFirstResponder];
             } else
             {
                 [pleaseEnterLabel setText:@"Username Cannot Be Empty"];
             }
             break;
+            
         case dateClick:
             {
                 NSDate * todaysDate = [NSDate date];
@@ -100,8 +105,12 @@
                 [dateView show];
             }
             break;
+            
         case infoClick:
             [infoLabel setText: @"This application was written by Justin Rowe"];
+            break;
+            
+        default:
             break;
     }
 }
