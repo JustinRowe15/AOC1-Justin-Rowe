@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#define loginClick 0
+#define dateClick 1
+#define infoClick 2
 
 @interface ViewController ()
 
@@ -33,7 +36,7 @@
     
     //Login Button
     UIButton * loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [loginButton setTag:1];
+    [loginButton setTag:loginClick];
     [loginButton setFrame:CGRectMake(215.0f, 50.0f, 90.0f, 30.0f)];
     [loginButton setTitle:@"Enter" forState:UIControlStateNormal];
     [loginButton addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
@@ -49,15 +52,17 @@
     
     //Date Button
     UIButton * dateButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [dateButton setTag:2];
+    [dateButton setTag:dateClick];
     [dateButton setFrame:CGRectMake(20.0f, 240.0f, 100.0f, 50.0f)];
     [dateButton setTitle:@"Show Date" forState:UIControlStateNormal];
+    [loginButton addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:dateButton];
     
     //Info Button
     UIButton * infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
-    [infoButton setTag:3];
+    [infoButton setTag:infoClick];
     [infoButton setFrame: CGRectMake(20.0f, 360.0f, 20.0f, 20.0f)];
+    [loginButton addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:infoButton];
     
     //Info Label
@@ -75,17 +80,16 @@
 -(void)onClick:(id)button
 {
     switch ([button tag]) {
-        case 1:
+        case loginClick:
             if ([loginField.text length] > 0)
             {
                 [pleaseEnterLabel setText:[NSString stringWithFormat:@"User: %@ has logged in.", [loginField text]]];
-                [loginField resignFirstResponder];
             } else
             {
                 [pleaseEnterLabel setText:@"Username Cannot Be Empty"];
             }
             break;
-        case 2:
+        case dateClick:
             {
                 NSDate * todaysDate = [NSDate date];
                 NSDateFormatter * dateFormat = [[NSDateFormatter alloc] init];
@@ -95,7 +99,7 @@
                 [dateView show];
             }
             break;
-        case 3:
+        case infoClick:
             [infoLabel setText: @"This application was written by Justin Rowe"];
             break;
     }
