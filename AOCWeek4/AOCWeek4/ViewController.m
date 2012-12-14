@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+
 #define loginClick 0
 #define dateClick 1
 #define infoClick 2
@@ -21,7 +22,7 @@
 {
     
     //User Name Label
-    UILabel * userName = [[UILabel alloc] initWithFrame:CGRectMake(0, 10.0f, 100.0f, 40.0f)];
+    userName = [[UILabel alloc] initWithFrame:CGRectMake(0, 10.0f, 100.0f, 40.0f)];
     {
         userName.text = @"Username:";
         userName.textColor = [UIColor blackColor];
@@ -35,7 +36,7 @@
     [self.view addSubview:loginField];
     
     //Login Button
-    UIButton * loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [loginButton setTag:loginClick];
     [loginButton setFrame:CGRectMake(215.0f, 50.0f, 90.0f, 30.0f)];
     [loginButton setTitle:@"Enter" forState:UIControlStateNormal];
@@ -51,7 +52,7 @@
     [self.view addSubview:pleaseEnterLabel];
     
     //Date Button
-    UIButton * dateButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    dateButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [dateButton setTag:dateClick];
     [dateButton setFrame:CGRectMake(20.0f, 240.0f, 100.0f, 50.0f)];
     [dateButton setTitle:@"Show Date" forState:UIControlStateNormal];
@@ -59,7 +60,7 @@
     [self.view addSubview:dateButton];
     
     //Info Button
-    UIButton * infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
     [infoButton setTag:infoClick];
     [infoButton setFrame: CGRectMake(20.0f, 360.0f, 20.0f, 20.0f)];
     [loginButton addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
@@ -77,7 +78,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)onClick:(id)button
+-(void)onClick:(UIButton*)button
 {
     switch ([button tag]) {
         case loginClick:
